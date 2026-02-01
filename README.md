@@ -6,6 +6,8 @@
 
 **Keywords:** Chrome extension, Google Play Console, dark mode, dark theme, Android developers, Play Console dark, productivity, developer tools
 
+**Contributions welcome!** See [CONTRIBUTING.md](CONTRIBUTING.md) for how to fork and submit pull requests.
+
 ## Features
 
 - **Complete dark theme** – Applies to play.google.com/console and related pages
@@ -51,6 +53,7 @@ Point Chrome to the folder containing `manifest.json` when loading the extension
 GCPConsoleDarkMode/
 ├── manifest.json       # Extension manifest (Manifest V3)
 ├── LICENSE             # MIT License
+├── CONTRIBUTING.md     # Contribution guidelines
 ├── content/
 │   ├── content.js      # Injects dark mode logic, listens for toggle
 │   ├── dark-mode.css   # Override-based dark theme (legacy)
