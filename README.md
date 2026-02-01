@@ -1,6 +1,10 @@
 # Play Console Dark Mode
 
-A Chrome extension that adds a dark mode to [Google Play Console](https://play.google.com/console). Toggle with one click.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+> Dark mode for Google Play Console. A Chrome extension that adds a beautiful dark theme to play.google.com/console. Toggle with one click.
+
+**Keywords:** Chrome extension, Google Play Console, dark mode, dark theme, Android developers, Play Console dark, productivity, developer tools
 
 ## Features
 
@@ -46,9 +50,11 @@ Point Chrome to the folder containing `manifest.json` when loading the extension
 ```
 GCPConsoleDarkMode/
 ├── manifest.json       # Extension manifest (Manifest V3)
+├── LICENSE             # MIT License
 ├── content/
 │   ├── content.js      # Injects dark mode logic, listens for toggle
-│   └── dark-mode.css   # Dark theme styles
+│   ├── dark-mode.css   # Override-based dark theme (legacy)
+│   └── dark-mode-filter.css  # Filter-based dark theme (active)
 ├── popup/
 │   ├── popup.html      # Popup UI
 │   ├── popup.css       # Popup styles
@@ -63,4 +69,4 @@ GCPConsoleDarkMode/
 
 ## License
 
-MIT
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
