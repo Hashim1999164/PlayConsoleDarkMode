@@ -1,0 +1,499 @@
+/**
+ * Play Console Dark Mode
+ * Comprehensive dark theme for play.google.com/console
+ * Uses CSS custom properties for consistency.
+ * All rules are scoped under html.play-console-dark-mode - the content script
+ * adds/removes this class based on user preference.
+ */
+
+/* Scoped under html.play-console-dark-mode - no effect until class is present */
+html.play-console-dark-mode,
+html.play-console-dark-mode body {
+  color-scheme: dark !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ROOT & GLOBAL OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode {
+  --pc-dark-bg-primary: #202124;
+  --pc-dark-bg-secondary: #292a2d;
+  --pc-dark-bg-tertiary: #35363a;
+  --pc-dark-bg-elevated: #3c4043;
+  --pc-dark-bg-hover: #413f3f;
+  --pc-dark-surface: #202124;
+  --pc-dark-surface-2: #292a2d;
+  --pc-dark-text-primary: #e8eaed;
+  --pc-dark-text-secondary: #bdc1c6;
+  --pc-dark-text-tertiary: #9aa0a6;
+  --pc-dark-border: #5f6368;
+  --pc-dark-border-subtle: #3c4043;
+  --pc-dark-accent: #8ab4f8;
+  --pc-dark-accent-hover: #aecbfa;
+  --pc-dark-link: #8ab4f8;
+  --pc-dark-success: #81c995;
+  --pc-dark-warning: #fdd663;
+  --pc-dark-error: #f28b82;
+}
+
+html.play-console-dark-mode,
+html.play-console-dark-mode body,
+html.play-console-dark-mode #root,
+html.play-console-dark-mode [role="main"],
+html.play-console-dark-mode main,
+html.play-console-dark-mode .app,
+html.play-console-dark-mode [data-route],
+html.play-console-dark-mode [data-view] {
+  background-color: var(--pc-dark-bg-primary) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LAYOUT & CONTAINERS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [class*="card"],
+html.play-console-dark-mode [class*="Card"],
+html.play-console-dark-mode [class*="panel"],
+html.play-console-dark-mode [class*="Panel"],
+html.play-console-dark-mode [class*="container"]:not([class*="modal"]),
+html.play-console-dark-mode section,
+html.play-console-dark-mode article,
+html.play-console-dark-mode [role="region"],
+html.play-console-dark-mode div[class*="content"],
+html.play-console-dark-mode [class*="wrapper"],
+html.play-console-dark-mode [class*="section"],
+html.play-console-dark-mode [class*="tile"],
+html.play-console-dark-mode [class*="block"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* Material-style surfaces */
+html.play-console-dark-mode [class*="surface"],
+html.play-console-dark-mode [class*="Surface"],
+html.play-console-dark-mode [class*="paper"],
+html.play-console-dark-mode [class*="Paper"],
+html.play-console-dark-mode [class*="elevation"],
+html.play-console-dark-mode [class*="mat-"],
+html.play-console-dark-mode [class*="mdc-"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR & NAVIGATION
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [class*="sidebar"],
+html.play-console-dark-mode [class*="Sidebar"],
+html.play-console-dark-mode [class*="nav"],
+html.play-console-dark-mode [class*="Nav"],
+html.play-console-dark-mode nav,
+html.play-console-dark-mode [role="navigation"],
+html.play-console-dark-mode [class*="drawer"],
+html.play-console-dark-mode [class*="Drawer"],
+html.play-console-dark-mode [class*="menu"],
+html.play-console-dark-mode [class*="Menu"],
+html.play-console-dark-mode aside,
+html.play-console-dark-mode [class*="rail"],
+html.play-console-dark-mode header[class*="nav"],
+html.play-console-dark-mode [data-test-id*="nav"],
+html.play-console-dark-mode [aria-label*="navigation"] {
+  background-color: var(--pc-dark-bg-primary) !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* Nav items & links */
+html.play-console-dark-mode [class*="nav"] a,
+html.play-console-dark-mode nav a,
+html.play-console-dark-mode [class*="sidebar"] a,
+html.play-console-dark-mode [role="navigation"] a,
+html.play-console-dark-mode [class*="menu-item"],
+html.play-console-dark-mode [class*="MenuItem"],
+html.play-console-dark-mode [class*="nav-item"],
+html.play-console-dark-mode [class*="NavItem"] {
+  color: var(--pc-dark-text-secondary) !important;
+}
+
+html.play-console-dark-mode [class*="nav"] a:hover,
+html.play-console-dark-mode nav a:hover,
+html.play-console-dark-mode [class*="sidebar"] a:hover,
+html.play-console-dark-mode [class*="menu-item"]:hover,
+html.play-console-dark-mode [class*="nav-item"]:hover {
+  background-color: var(--pc-dark-bg-hover) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+html.play-console-dark-mode [class*="active"],
+html.play-console-dark-mode [aria-current="page"],
+html.play-console-dark-mode [aria-selected="true"] {
+  background-color: var(--pc-dark-bg-tertiary) !important;
+  color: var(--pc-dark-accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER & TOOLBAR
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode header,
+html.play-console-dark-mode [role="banner"],
+html.play-console-dark-mode [class*="header"],
+html.play-console-dark-mode [class*="Header"],
+html.play-console-dark-mode [class*="toolbar"],
+html.play-console-dark-mode [class*="Toolbar"],
+html.play-console-dark-mode [class*="topbar"],
+html.play-console-dark-mode [class*="TopBar"],
+html.play-console-dark-mode [class*="app-bar"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+  border-bottom-color: var(--pc-dark-border-subtle) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode h1,
+html.play-console-dark-mode h2,
+html.play-console-dark-mode h3,
+html.play-console-dark-mode h4,
+html.play-console-dark-mode h5,
+html.play-console-dark-mode h6,
+html.play-console-dark-mode [class*="title"],
+html.play-console-dark-mode [class*="Title"],
+html.play-console-dark-mode [class*="heading"],
+html.play-console-dark-mode [class*="Heading"] {
+  color: var(--pc-dark-text-primary) !important;
+}
+
+html.play-console-dark-mode p,
+html.play-console-dark-mode span,
+html.play-console-dark-mode div,
+html.play-console-dark-mode label,
+html.play-console-dark-mode td,
+html.play-console-dark-mode th,
+html.play-console-dark-mode li {
+  color: inherit;
+}
+
+/* Secondary/muted text */
+html.play-console-dark-mode [class*="caption"],
+html.play-console-dark-mode [class*="subtitle"],
+html.play-console-dark-mode [class*="description"],
+html.play-console-dark-mode [class*="muted"],
+html.play-console-dark-mode [class*="secondary"] {
+  color: var(--pc-dark-text-secondary) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LINKS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode a {
+  color: var(--pc-dark-link) !important;
+}
+
+html.play-console-dark-mode a:hover {
+  color: var(--pc-dark-accent-hover) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM ELEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode input,
+html.play-console-dark-mode textarea,
+html.play-console-dark-mode select,
+html.play-console-dark-mode [contenteditable="true"],
+html.play-console-dark-mode [class*="input"],
+html.play-console-dark-mode [class*="Input"],
+html.play-console-dark-mode [class*="text-field"],
+html.play-console-dark-mode [class*="TextField"],
+html.play-console-dark-mode [class*="search"] input {
+  background-color: var(--pc-dark-bg-tertiary) !important;
+  border-color: var(--pc-dark-border) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+html.play-console-dark-mode input::placeholder,
+html.play-console-dark-mode textarea::placeholder {
+  color: var(--pc-dark-text-tertiary) !important;
+}
+
+html.play-console-dark-mode input:focus,
+html.play-console-dark-mode textarea:focus,
+html.play-console-dark-mode select:focus {
+  border-color: var(--pc-dark-accent) !important;
+  outline-color: var(--pc-dark-accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode button,
+html.play-console-dark-mode [role="button"],
+html.play-console-dark-mode [class*="Button"],
+html.play-console-dark-mode [class*="btn"] {
+  background-color: var(--pc-dark-bg-tertiary) !important;
+  border-color: var(--pc-dark-border) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+html.play-console-dark-mode button:hover,
+html.play-console-dark-mode [role="button"]:hover,
+html.play-console-dark-mode [class*="Button"]:hover,
+html.play-console-dark-mode [class*="btn"]:hover {
+  background-color: var(--pc-dark-bg-hover) !important;
+}
+
+/* Primary/CTA buttons */
+html.play-console-dark-mode button[class*="primary"],
+html.play-console-dark-mode [class*="PrimaryButton"],
+html.play-console-dark-mode [class*="cta"],
+html.play-console-dark-mode [class*="CTA"],
+html.play-console-dark-mode .goog-button-action,
+html.play-console-dark-mode [data-primary="true"] {
+  background-color: var(--pc-dark-accent) !important;
+  color: var(--pc-dark-bg-primary) !important;
+  border-color: transparent !important;
+}
+
+html.play-console-dark-mode button[class*="primary"]:hover,
+html.play-console-dark-mode [class*="PrimaryButton"]:hover {
+  background-color: var(--pc-dark-accent-hover) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TABLES
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode table,
+html.play-console-dark-mode [role="grid"],
+html.play-console-dark-mode [class*="table"],
+html.play-console-dark-mode [class*="Table"],
+html.play-console-dark-mode [class*="data-grid"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+}
+
+html.play-console-dark-mode th,
+html.play-console-dark-mode thead td,
+html.play-console-dark-mode [role="columnheader"] {
+  background-color: var(--pc-dark-bg-tertiary) !important;
+  color: var(--pc-dark-text-primary) !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+}
+
+html.play-console-dark-mode td,
+html.play-console-dark-mode [role="gridcell"] {
+  border-color: var(--pc-dark-border-subtle) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+html.play-console-dark-mode tr:hover,
+html.play-console-dark-mode [role="row"]:hover {
+  background-color: var(--pc-dark-bg-hover) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODALS & DIALOGS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [role="dialog"],
+html.play-console-dark-mode [class*="modal"],
+html.play-console-dark-mode [class*="Modal"],
+html.play-console-dark-mode [class*="dialog"],
+html.play-console-dark-mode [class*="Dialog"],
+html.play-console-dark-mode [class*="popover"],
+html.play-console-dark-mode [class*="Popover"],
+html.play-console-dark-mode [class*="dropdown"],
+html.play-console-dark-mode [class*="Dropdown"],
+html.play-console-dark-mode [role="listbox"],
+html.play-console-dark-mode [role="menu"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+  border-color: var(--pc-dark-border) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* Modal backdrops only - do NOT use [class*="overlay"] - it matches main content */
+html.play-console-dark-mode [class*="backdrop"],
+html.play-console-dark-mode [class*="scrim"] {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CHARTS & DATA VISUALIZATION
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [class*="chart"],
+html.play-console-dark-mode [class*="Chart"],
+html.play-console-dark-mode svg[class*="chart"],
+html.play-console-dark-mode canvas {
+  background-color: transparent !important;
+}
+
+html.play-console-dark-mode [class*="chart"] [class*="axis"],
+html.play-console-dark-mode [class*="Chart"] text {
+  fill: var(--pc-dark-text-secondary) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STATUS & BADGES
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [class*="badge"],
+html.play-console-dark-mode [class*="Badge"],
+html.play-console-dark-mode [class*="tag"],
+html.play-console-dark-mode [class*="chip"],
+html.play-console-dark-mode [class*="Chip"],
+html.play-console-dark-mode [class*="pill"],
+html.play-console-dark-mode [class*="status"] {
+  background-color: var(--pc-dark-bg-tertiary) !important;
+  border-color: var(--pc-dark-border) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* Success/warning/error states */
+html.play-console-dark-mode [class*="success"],
+html.play-console-dark-mode [data-status="success"] {
+  color: var(--pc-dark-success) !important;
+}
+
+html.play-console-dark-mode [class*="warning"],
+html.play-console-dark-mode [data-status="warning"] {
+  color: var(--pc-dark-warning) !important;
+}
+
+html.play-console-dark-mode [class*="error"],
+html.play-console-dark-mode [class*="danger"],
+html.play-console-dark-mode [data-status="error"] {
+  color: var(--pc-dark-error) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TABS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [role="tablist"],
+html.play-console-dark-mode [class*="tabs"],
+html.play-console-dark-mode [class*="Tabs"] {
+  background-color: transparent !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+}
+
+html.play-console-dark-mode [role="tab"],
+html.play-console-dark-mode [class*="tab"] {
+  color: var(--pc-dark-text-secondary) !important;
+}
+
+html.play-console-dark-mode [role="tab"][aria-selected="true"],
+html.play-console-dark-mode [class*="tab"][class*="active"],
+html.play-console-dark-mode [class*="tab"][class*="selected"] {
+  color: var(--pc-dark-accent) !important;
+  border-color: var(--pc-dark-accent) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBARS (Webkit)
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+html.play-console-dark-mode ::-webkit-scrollbar-track {
+  background: var(--pc-dark-bg-primary);
+}
+
+html.play-console-dark-mode ::-webkit-scrollbar-thumb {
+  background: var(--pc-dark-border);
+  border-radius: 6px;
+  border: 3px solid var(--pc-dark-bg-primary);
+}
+
+html.play-console-dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: var(--pc-dark-text-tertiary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PLAY CONSOLE MARKETING SITE (about/landing)
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode [class*="hero"],
+html.play-console-dark-mode [class*="banner"],
+html.play-console-dark-mode [class*="billboard"],
+html.play-console-dark-mode [class*="promo"],
+html.play-console-dark-mode [class*="feature"],
+html.play-console-dark-mode [class*="section"],
+html.play-console-dark-mode [class*="footer"],
+html.play-console-dark-mode footer {
+  background-color: var(--pc-dark-bg-primary) !important;
+  color: var(--pc-dark-text-primary) !important;
+}
+
+/* Common marketing site patterns */
+html.play-console-dark-mode [class*="card-wrapper"],
+html.play-console-dark-mode [class*="resource-card"],
+html.play-console-dark-mode [class*="topic-card"],
+html.play-console-dark-mode [class*="guide-card"],
+html.play-console-dark-mode [class*="program-card"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GOOGLE-SPECIFIC OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Google material / gws components */
+html.play-console-dark-mode .gws-root,
+html.play-console-dark-mode [class^="gb_"],
+html.play-console-dark-mode [class*="gb-"],
+html.play-console-dark-mode [data-ogsr-up],
+html.play-console-dark-mode [class*="material-"],
+html.play-console-dark-mode .material-icons {
+  color: inherit !important;
+}
+
+/* Force dark on common light backgrounds */
+html.play-console-dark-mode [style*="background-color: white"],
+html.play-console-dark-mode [style*="background-color: #fff"],
+html.play-console-dark-mode [style*="background: white"],
+html.play-console-dark-mode [style*="background: #fff"],
+html.play-console-dark-mode [style*="background-color: rgb(255"],
+html.play-console-dark-mode [style*="background-color:#ffffff"] {
+  background-color: var(--pc-dark-bg-secondary) !important;
+}
+
+/* Images - reduce brightness for dark mode consistency */
+html.play-console-dark-mode img[src*="marketing-cms"],
+html.play-console-dark-mode img[src*="gstatic"] {
+  opacity: 0.9;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MISC & FALLBACKS
+   ═══════════════════════════════════════════════════════════════ */
+
+html.play-console-dark-mode * {
+  scrollbar-color: var(--pc-dark-border) var(--pc-dark-bg-primary);
+}
+
+/* Ensure borders don't disappear */
+html.play-console-dark-mode [style*="border"] {
+  border-color: var(--pc-dark-border-subtle) !important;
+}
+
+/* Code blocks */
+html.play-console-dark-mode code,
+html.play-console-dark-mode pre {
+  background-color: var(--pc-dark-bg-tertiary) !important;
+  color: var(--pc-dark-text-primary) !important;
+  border-color: var(--pc-dark-border-subtle) !important;
+}

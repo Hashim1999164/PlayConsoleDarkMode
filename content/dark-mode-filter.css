@@ -1,0 +1,33 @@
+/**
+ * Play Console Dark Mode - Filter-based approach
+ * Uses invert + hue-rotate to darken the page without DOM-specific selectors.
+ * Avoids the black screen issue caused by broad selectors on SPAs.
+ */
+
+html.play-console-dark-mode {
+  /* Use 0.88 invert: white → dark gray (#1e1e1e), not black. invert(1) makes white → #000 */
+  filter: invert(0.88) hue-rotate(180deg);
+  background-color: #e0e2e5 !important;
+  min-height: 100%;
+}
+
+html.play-console-dark-mode body {
+  background-color: #e0e2e5 !important;
+  min-height: 100vh;
+}
+
+/* Undo inversion on images, icons, and media so they look normal */
+html.play-console-dark-mode img,
+html.play-console-dark-mode video,
+html.play-console-dark-mode iframe,
+html.play-console-dark-mode [style*="background-image"],
+html.play-console-dark-mode svg,
+html.play-console-dark-mode canvas {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* Emoji and emoji-like elements */
+html.play-console-dark-mode [class*="emoji"],
+html.play-console-dark-mode .emoji {
+  filter: invert(1) hue-rotate(180deg) !important;
+}

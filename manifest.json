@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Play Console Dark Mode",
+  "version": "1.0.0",
+  "description": "A beautiful dark mode for Google Play Console. Toggle with one click.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://play.google.com/console/*",
+    "https://*.play.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Play Console Dark Mode"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://play.google.com/console",
+        "https://play.google.com/console/*",
+        "https://play.google.com/console/u/*"
+      ],
+      "js": ["content/content.js"],
+      "css": ["content/dark-mode-filter.css"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content/dark-mode.css", "content/dark-mode-filter.css"],
+      "matches": ["https://play.google.com/*"]
+    }
+  ]
+}
