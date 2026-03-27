@@ -1,0 +1,52 @@
+/**
+ * App Store Connect — refinements on top of filter dark mode.
+ * Applied only when html has .play-console-asc (set by content.js on appstoreconnect.apple.com).
+ * Tuned for Apple’s bright white shell, tables, and media.
+ */
+
+html.play-console-dark-mode.play-console-asc {
+  /* Slightly softer than global 0.88 — ASC is very white; avoids harsh contrast */
+  filter: invert(0.86) hue-rotate(180deg);
+  background-color: #d8dade !important;
+}
+
+html.play-console-dark-mode.play-console-asc body {
+  background-color: #d8dade !important;
+  min-height: 100vh;
+}
+
+html.play-console-dark-mode.play-console-asc,
+html.play-console-dark-mode.play-console-asc body {
+  color-scheme: dark;
+}
+
+/* Same as base sheet: keep photos / icons natural */
+html.play-console-dark-mode.play-console-asc img,
+html.play-console-dark-mode.play-console-asc video,
+html.play-console-dark-mode.play-console-asc iframe,
+html.play-console-dark-mode.play-console-asc picture,
+html.play-console-dark-mode.play-console-asc object,
+html.play-console-dark-mode.play-console-asc embed,
+html.play-console-dark-mode.play-console-asc [style*="background-image"],
+html.play-console-dark-mode.play-console-asc svg,
+html.play-console-dark-mode.play-console-asc canvas {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+html.play-console-dark-mode.play-console-asc ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html.play-console-dark-mode.play-console-asc ::-webkit-scrollbar-track {
+  background: rgba(30, 30, 32, 0.6);
+}
+
+html.play-console-dark-mode.play-console-asc ::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 128, 0.7);
+  border-radius: 5px;
+}
+
+html.play-console-dark-mode.play-console-asc * {
+  scrollbar-color: rgba(120, 120, 128, 0.8) rgba(30, 30, 32, 0.5);
+}

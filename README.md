@@ -49,7 +49,7 @@ Point Chrome to the folder containing `manifest.json` when loading the extension
 - **Manifest V3**
 - **Permissions:** `storage`, `activeTab`, `host_permissions` for the supported developer sites
 - **Storage:** Uses `chrome.storage.sync` for preference persistence
-- **Approach:** CSS `filter: invert(0.88) hue-rotate(180deg)` (with image counter-invert) to avoid pure-black screens on light SPAs
+- **Approach:** CSS `filter: invert(0.88) hue-rotate(180deg)` (with image counter-invert) on Play Console / AdMob; **App Store Connect** gets an extra `dark-mode-asc.css` (softer invert `0.86`, `color-scheme: dark`, scrollbars, `picture`/`object`/`embed` handling) when the host is `appstoreconnect.apple.com`
 
 ## Project structure
 
@@ -61,7 +61,8 @@ GCPConsoleDarkMode/
 ├── content/
 │   ├── content.js      # Injects dark mode logic, listens for toggle
 │   ├── dark-mode.css   # Override-based dark theme (legacy)
-│   └── dark-mode-filter.css  # Filter-based dark theme (active)
+│   ├── dark-mode-filter.css  # Filter-based dark theme (active)
+│   └── dark-mode-asc.css     # App Store Connect tweaks
 ├── popup/
 │   ├── popup.html      # Popup UI
 │   ├── popup.css       # Popup styles

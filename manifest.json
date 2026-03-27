@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Developer Consoles Dark Mode",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Dark mode for Play Console, AdMob, and Apple App Store Connect. Toggle with one click.",
   "icons": {
     "16": "icons/icon16.png",
@@ -42,14 +42,18 @@
         "https://*.appstoreconnect.apple.com/*"
       ],
       "js": ["content/content.js"],
-      "css": ["content/dark-mode-filter.css"],
+      "css": ["content/dark-mode-filter.css", "content/dark-mode-asc.css"],
       "run_at": "document_start",
       "all_frames": true
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content/dark-mode.css", "content/dark-mode-filter.css"],
+      "resources": [
+        "content/dark-mode.css",
+        "content/dark-mode-filter.css",
+        "content/dark-mode-asc.css"
+      ],
       "matches": [
         "https://play.google.com/*",
         "https://admob.google.com/*",

@@ -9,11 +9,32 @@
 
   const STORAGE_KEY = "playConsoleDarkMode";
   const DARK_CLASS = "play-console-dark-mode";
+  const ASC_HOST_CLASS = "play-console-asc";
+
+  function isAppStoreConnectHost() {
+    try {
+      const h = location.hostname;
+      return h === "appstoreconnect.apple.com" || h.endsWith(".appstoreconnect.apple.com");
+    } catch {
+      return false;
+    }
+  }
+
+  /** Host-specific class so ASC can use tuned CSS (see dark-mode-asc.css). */
+  function syncHostClass() {
+    const root = document.documentElement;
+    if (isAppStoreConnectHost()) {
+      root.classList.add(ASC_HOST_CLASS);
+    } else {
+      root.classList.remove(ASC_HOST_CLASS);
+    }
+  }
 
   /**
    * Apply or remove dark mode based on enabled state.
    */
   function setDarkMode(enabled) {
+    syncHostClass();
     if (enabled) {
       document.documentElement.classList.add(DARK_CLASS);
     } else {
@@ -57,6 +78,8 @@
     }
     return true;
   });
+
+  syncHostClass();
 
   /**
    * Apply immediately on load.
