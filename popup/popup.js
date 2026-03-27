@@ -9,6 +9,24 @@
   const STORAGE_KEY = "playConsoleDarkMode";
   const toggle = document.getElementById("toggle");
 
+  function isSupportedPageUrl(url) {
+    if (!url) return false;
+    try {
+      const u = new URL(url);
+      const host = u.hostname;
+      if (host === "play.google.com" && u.pathname.startsWith("/console")) return true;
+      if (host === "admob.google.com" || host.endsWith(".admob.google.com")) return true;
+      if (host === "admob.com" || host.endsWith(".admob.com")) return true;
+      return false;
+    } catch {
+      return (
+        url.includes("play.google.com/console") ||
+        url.includes("admob.google.com") ||
+        url.includes("apps.admob.com")
+      );
+    }
+  }
+
   /**
    * Load saved preference and update UI.
    */
@@ -32,7 +50,7 @@
     // Tell active tab to update
     try {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (tab?.url?.includes("play.google.com/console")) {
+      if (isSupportedPageUrl(tab?.url)) {
         chrome.tabs.sendMessage(tab.id, { action: "setDarkMode", enabled }).catch(() => {});
       }
     } catch (_) {}

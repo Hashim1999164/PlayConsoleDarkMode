@@ -1,16 +1,16 @@
-# Play Console Dark Mode
+# Play Console & AdMob Dark Mode
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> Dark mode for Google Play Console. A Chrome extension that adds a beautiful dark theme to play.google.com/console. Toggle with one click.
+> Dark mode for **Google Play Console** and **Google AdMob**. A Chrome extension that adds a comfortable dark theme to play.google.com/console and admob.google.com. Toggle with one click.
 
-**Keywords:** Chrome extension, Google Play Console, dark mode, dark theme, Android developers, Play Console dark, productivity, developer tools
+**Keywords:** Chrome extension, Google Play Console, Google AdMob, AdMob dark mode, dark theme, Android developers, monetization, productivity, developer tools
 
 **Contributions welcome!** See [CONTRIBUTING.md](CONTRIBUTING.md) for how to fork and submit pull requests.
 
 ## Features
 
-- **Complete dark theme** – Applies to play.google.com/console and related pages
+- **Complete dark theme** – Applies to Play Console and AdMob (including admob.google.com and apps.admob.com)
 - **Toggle button** – Turn dark mode on or off via the extension popup
 - **Persistent preference** – Your choice is saved and synced across Chrome instances
 - **Material-inspired UI** – Clean, Google-style popup design
@@ -30,15 +30,16 @@ Point Chrome to the folder containing `manifest.json` when loading the extension
 
 ## Usage
 
-1. Visit [play.google.com/console](https://play.google.com/console)
+1. Visit [play.google.com/console](https://play.google.com/console) or [Google AdMob](https://admob.google.com/)
 2. Click the extension icon in the Chrome toolbar
 3. Use the toggle to enable or disable dark mode
 4. If the page doesn’t update right away, refresh the tab
 
 ## Supported pages
 
-- `play.google.com/console` (landing)
-- `play.google.com/console/*` (developer dashboard, guides, about, etc.)
+- `play.google.com/console` and `play.google.com/console/*` (Play Console)
+- `admob.google.com/*` (AdMob console; e.g. `/v2/home`)
+- `apps.admob.com/*` and other `*.admob.com` subdomains where applicable
 
 ## Technical details
 

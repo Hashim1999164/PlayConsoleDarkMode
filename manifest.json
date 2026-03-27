@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Play Console Dark Mode",
-  "version": "1.0.0",
-  "description": "A beautiful dark mode for Google Play Console. Toggle with one click.",
+  "name": "Play Console & AdMob Dark Mode",
+  "version": "1.1.0",
+  "description": "Dark mode for Google Play Console and Google AdMob. Toggle with one click.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -11,7 +11,11 @@
   "permissions": ["storage", "activeTab"],
   "host_permissions": [
     "https://play.google.com/console/*",
-    "https://*.play.google.com/*"
+    "https://*.play.google.com/*",
+    "https://admob.google.com/*",
+    "https://*.admob.google.com/*",
+    "https://apps.admob.com/*",
+    "https://*.admob.com/*"
   ],
   "action": {
     "default_popup": "popup/popup.html",
@@ -20,14 +24,18 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "Play Console Dark Mode"
+    "default_title": "Play Console & AdMob Dark Mode"
   },
   "content_scripts": [
     {
       "matches": [
         "https://play.google.com/console",
         "https://play.google.com/console/*",
-        "https://play.google.com/console/u/*"
+        "https://play.google.com/console/u/*",
+        "https://admob.google.com/*",
+        "https://*.admob.google.com/*",
+        "https://apps.admob.com/*",
+        "https://*.admob.com/*"
       ],
       "js": ["content/content.js"],
       "css": ["content/dark-mode-filter.css"],
@@ -38,7 +46,13 @@
   "web_accessible_resources": [
     {
       "resources": ["content/dark-mode.css", "content/dark-mode-filter.css"],
-      "matches": ["https://play.google.com/*"]
+      "matches": [
+        "https://play.google.com/*",
+        "https://admob.google.com/*",
+        "https://*.admob.google.com/*",
+        "https://apps.admob.com/*",
+        "https://*.admob.com/*"
+      ]
     }
   ]
 }
