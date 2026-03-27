@@ -1,52 +1,50 @@
 /**
- * App Store Connect — refinements on top of filter dark mode.
- * Applied only when html has .play-console-asc (set by content.js on appstoreconnect.apple.com).
- * Tuned for Apple’s bright white shell, tables, and media.
+ * Portal Dark Mode — alternate host tuning
+ * Softer invert + extras for very bright portal UIs (e.g. Apple developer portal).
+ * Active when html has .portal-host-alt (see content.js).
  */
 
-html.play-console-dark-mode.play-console-asc {
-  /* Slightly softer than global 0.88 — ASC is very white; avoids harsh contrast */
+html.portal-dark-mode.portal-host-alt {
   filter: invert(0.86) hue-rotate(180deg);
   background-color: #d8dade !important;
 }
 
-html.play-console-dark-mode.play-console-asc body {
+html.portal-dark-mode.portal-host-alt body {
   background-color: #d8dade !important;
   min-height: 100vh;
 }
 
-html.play-console-dark-mode.play-console-asc,
-html.play-console-dark-mode.play-console-asc body {
+html.portal-dark-mode.portal-host-alt,
+html.portal-dark-mode.portal-host-alt body {
   color-scheme: dark;
 }
 
-/* Same as base sheet: keep photos / icons natural */
-html.play-console-dark-mode.play-console-asc img,
-html.play-console-dark-mode.play-console-asc video,
-html.play-console-dark-mode.play-console-asc iframe,
-html.play-console-dark-mode.play-console-asc picture,
-html.play-console-dark-mode.play-console-asc object,
-html.play-console-dark-mode.play-console-asc embed,
-html.play-console-dark-mode.play-console-asc [style*="background-image"],
-html.play-console-dark-mode.play-console-asc svg,
-html.play-console-dark-mode.play-console-asc canvas {
+html.portal-dark-mode.portal-host-alt img,
+html.portal-dark-mode.portal-host-alt video,
+html.portal-dark-mode.portal-host-alt iframe,
+html.portal-dark-mode.portal-host-alt picture,
+html.portal-dark-mode.portal-host-alt object,
+html.portal-dark-mode.portal-host-alt embed,
+html.portal-dark-mode.portal-host-alt [style*="background-image"],
+html.portal-dark-mode.portal-host-alt svg,
+html.portal-dark-mode.portal-host-alt canvas {
   filter: invert(1) hue-rotate(180deg) !important;
 }
 
-html.play-console-dark-mode.play-console-asc ::-webkit-scrollbar {
+html.portal-dark-mode.portal-host-alt ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
-html.play-console-dark-mode.play-console-asc ::-webkit-scrollbar-track {
+html.portal-dark-mode.portal-host-alt ::-webkit-scrollbar-track {
   background: rgba(30, 30, 32, 0.6);
 }
 
-html.play-console-dark-mode.play-console-asc ::-webkit-scrollbar-thumb {
+html.portal-dark-mode.portal-host-alt ::-webkit-scrollbar-thumb {
   background: rgba(120, 120, 128, 0.7);
   border-radius: 5px;
 }
 
-html.play-console-dark-mode.play-console-asc * {
+html.portal-dark-mode.portal-host-alt * {
   scrollbar-color: rgba(120, 120, 128, 0.8) rgba(30, 30, 32, 0.5);
 }

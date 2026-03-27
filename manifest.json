@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Developer Consoles Dark Mode",
-  "version": "1.2.1",
-  "description": "Dark mode for Play Console, AdMob, and Apple App Store Connect. Toggle with one click.",
+  "name": "Portal Dark Mode",
+  "version": "1.3.0",
+  "description": "Dark theme for web-based publisher and developer portals. One-click toggle; preference syncs in Chrome.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -26,7 +26,7 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "Developer Consoles Dark Mode"
+    "default_title": "Portal Dark Mode"
   },
   "content_scripts": [
     {

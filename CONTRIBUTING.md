@@ -1,39 +1,29 @@
-# Contributing to Play Console Dark Mode
+# Contributing to Portal Dark Mode
 
-Contributions are welcome! Feel free to fork this repository and submit pull requests.
+Contributions are welcome. Fork the repository and open pull requests for fixes or improvements.
 
-## How to Contribute
+## How to contribute
 
-1. **Fork the repository** – Click the "Fork" button at the top right of this page.
-
-2. **Clone your fork** – Clone the repo to your machine:
+1. **Fork** this repository.
+2. **Clone** your fork:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/PlayConsoleDarkMode.git
-   cd PlayConsoleDarkMode
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+   cd YOUR_REPO
    ```
-
-3. **Create a branch** – Make your changes on a new branch:
+3. **Branch** for your change:
    ```bash
-   git checkout -b feature/your-feature-name
+   git checkout -b feature/short-description
    ```
-
-4. **Make your changes** – Edit the code, test the extension in Chrome.
-
-5. **Commit and push** – Push your branch to your fork:
-   ```bash
-   git add .
-   git commit -m "Description of your changes"
-   git push origin feature/your-feature-name
-   ```
-
-6. **Open a Pull Request** – Go to the original repository and click "Compare & pull request" to submit your PR.
+4. **Develop** — load the extension unpacked in Chrome and test on supported portal URLs.
+5. **Commit** and **push** your branch.
+6. **Open a pull request** against the upstream default branch.
 
 ## Guidelines
 
-- Describe your changes clearly in the PR description
-- Keep changes focused and easy to review
-- Test the extension on play.google.com/console before submitting
+- Keep pull requests focused and easy to review.
+- Describe what you changed and why.
+- Test on at least one supported origin from the README before submitting.
 
-## Questions?
+## Questions
 
-Open an [Issue](https://github.com/Hashim1999164/PlayConsoleDarkMode/issues) for bugs, feature requests, or questions.
+Open an issue on the repository for bugs, feature ideas, or questions.

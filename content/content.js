@@ -1,6 +1,6 @@
 /**
- * Developer Consoles Dark Mode - Content Script
- * Injects dark mode on Play Console, Google AdMob, and Apple App Store Connect.
+ * Portal Dark Mode — content script
+ * Applies dark theme on supported publisher/developer portal origins.
  * Persists preference via chrome.storage.sync.
  */
 
@@ -8,10 +8,10 @@
   "use strict";
 
   const STORAGE_KEY = "playConsoleDarkMode";
-  const DARK_CLASS = "play-console-dark-mode";
-  const ASC_HOST_CLASS = "play-console-asc";
+  const DARK_CLASS = "portal-dark-mode";
+  const HOST_ALT_CLASS = "portal-host-alt";
 
-  function isAppStoreConnectHost() {
+  function usesHostAltStylesheet() {
     try {
       const h = location.hostname;
       return h === "appstoreconnect.apple.com" || h.endsWith(".appstoreconnect.apple.com");
@@ -20,13 +20,13 @@
     }
   }
 
-  /** Host-specific class so ASC can use tuned CSS (see dark-mode-asc.css). */
+  /** Alternate host tuning (see dark-mode-asc.css). */
   function syncHostClass() {
     const root = document.documentElement;
-    if (isAppStoreConnectHost()) {
-      root.classList.add(ASC_HOST_CLASS);
+    if (usesHostAltStylesheet()) {
+      root.classList.add(HOST_ALT_CLASS);
     } else {
-      root.classList.remove(ASC_HOST_CLASS);
+      root.classList.remove(HOST_ALT_CLASS);
     }
   }
 

@@ -1,80 +1,77 @@
-# Developer Consoles Dark Mode
+# Portal Dark Mode
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> Dark mode for **Google Play Console**, **Google AdMob**, and **Apple App Store Connect**. One extension for play.google.com/console, admob.google.com, and appstoreconnect.apple.com. Toggle with one click.
+> A Chrome extension that adds a **comfortable dark theme** to common **web-based publisher and developer portals**—the kind you use to ship apps, manage ads, and handle store listings. Toggle from the toolbar; your choice **syncs** across Chrome (when signed in).
 
-**Keywords:** Chrome extension, Google Play Console, Google AdMob, App Store Connect, Apple developer, dark mode, dark theme, iOS, Android, monetization, productivity
+**Keywords:** Chrome extension, dark mode, developer portal, publisher console, app store tools, web UI, productivity, accessibility
 
-**Contributions welcome!** See [CONTRIBUTING.md](CONTRIBUTING.md) for how to fork and submit pull requests.
+**Contributions welcome!** See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Features
 
-- **Complete dark theme** – Play Console, AdMob, and App Store Connect (`appstoreconnect.apple.com`)
-- **Toggle button** – Turn dark mode on or off via the extension popup
-- **Persistent preference** – Your choice is saved and synced across Chrome instances
-- **Material-inspired UI** – Clean, Google-style popup design
+- **Dark theme** on supported HTTPS origins (filter-based, tuned for large single-page apps)
+- **Toolbar toggle** with a simple popup
+- **Persistent preference** via `chrome.storage.sync`
+- **Clean popup UI** inspired by common Material-style patterns
 
 ## Installation
 
-### From source (developer mode)
+### Load unpacked (development)
 
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable **Developer mode** (top-right)
+1. Open Chrome → `chrome://extensions/`
+2. Enable **Developer mode**
 3. Click **Load unpacked**
-4. Select the `GCPConsoleDarkMode` folder
-
-### Load the extension
-
-Point Chrome to the folder containing `manifest.json` when loading the extension.
+4. Choose the folder that contains this project’s `manifest.json`
 
 ## Usage
 
-1. Visit [Play Console](https://play.google.com/console), [AdMob](https://admob.google.com/), or [App Store Connect](https://appstoreconnect.apple.com/)
-2. Click the extension icon in the Chrome toolbar
-3. Use the toggle to enable or disable dark mode
-4. If the page doesn’t update right away, refresh the tab
+1. Open a **supported** portal in a tab (see list below)
+2. Click the extension icon
+3. Use the **Dark mode** switch
+4. Refresh the tab if the page doesn’t pick up the change immediately
 
-## Supported pages
+## Supported origins
 
-- `play.google.com/console` and `play.google.com/console/*` (Play Console)
-- `admob.google.com/*` (AdMob console; e.g. `/v2/home`)
-- `apps.admob.com/*` and other `*.admob.com` subdomains where applicable
-- `appstoreconnect.apple.com/*` (App Store Connect; e.g. `/login` and dashboard after sign-in)
+Host permissions are limited to these patterns (and closely related subdomains where noted):
 
-**Note:** Apple ID sign-in may open on a separate Apple domain (e.g. `appleid.apple.com` or `idmsa.apple.com`). That flow is not covered by this extension; dark mode applies on `appstoreconnect.apple.com` after you return.
+| Pattern | Notes |
+|--------|--------|
+| `https://play.google.com/console*` | Google Play — `/console` routes |
+| `https://*.play.google.com/*` | As required for console assets |
+| `https://admob.google.com/*`, `https://*.admob.google.com/*` | Google mobile ads publisher UI |
+| `https://apps.admob.com/*`, `https://*.admob.com/*` | Related ad platform hosts |
+| `https://appstoreconnect.apple.com/*`, `https://*.appstoreconnect.apple.com/*` | Apple app publishing portal |
+
+**Sign-in flows** that open on **other domains** (e.g. central identity pages) are **not** covered; the theme applies again once you’re back on a matched origin above.
 
 ## Technical details
 
 - **Manifest V3**
-- **Permissions:** `storage`, `activeTab`, `host_permissions` for the supported developer sites
-- **Storage:** Uses `chrome.storage.sync` for preference persistence
-- **Approach:** CSS `filter: invert(0.88) hue-rotate(180deg)` (with image counter-invert) on Play Console / AdMob; **App Store Connect** gets an extra `dark-mode-asc.css` (softer invert `0.86`, `color-scheme: dark`, scrollbars, `picture`/`object`/`embed` handling) when the host is `appstoreconnect.apple.com`
+- **Permissions:** `storage`, `activeTab`, plus narrow `host_permissions` for the table above
+- **Default styling:** `content/dark-mode-filter.css` — `invert(0.88)` + `hue-rotate(180deg)` with counter-invert on common media types (avoids a flat black screen on very light UIs)
+- **Alternate tuning:** `content/dark-mode-asc.css` — on hosts that use `portal-host-alt` (see `content.js`), enables a slightly softer invert, `color-scheme: dark`, scrollbars, and extra media selectors
+- **Legacy override stylesheet:** `content/dark-mode.css` (not injected by default; kept for reference or experiments)
 
 ## Project structure
 
 ```
-GCPConsoleDarkMode/
-├── manifest.json       # Extension manifest (Manifest V3)
-├── LICENSE             # MIT License
-├── CONTRIBUTING.md     # Contribution guidelines
+├── manifest.json
+├── LICENSE
+├── CONTRIBUTING.md
 ├── content/
-│   ├── content.js      # Injects dark mode logic, listens for toggle
-│   ├── dark-mode.css   # Override-based dark theme (legacy)
-│   ├── dark-mode-filter.css  # Filter-based dark theme (active)
-│   └── dark-mode-asc.css     # App Store Connect tweaks
+│   ├── content.js
+│   ├── dark-mode.css          # legacy overrides (optional)
+│   ├── dark-mode-filter.css   # default filter theme
+│   └── dark-mode-asc.css      # alternate host tuning
 ├── popup/
-│   ├── popup.html      # Popup UI
-│   ├── popup.css       # Popup styles
-│   └── popup.js        # Toggle logic, storage sync
+│   ├── popup.html
+│   ├── popup.css
+│   └── popup.js
 ├── icons/
-│   ├── icon.svg        # Source icon
-│   ├── icon16.png      # 16×16 toolbar icon
-│   ├── icon48.png      # 48×48 management page icon
-│   └── icon128.png     # 128×128 Chrome Web Store icon
 └── README.md
 ```
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+MIT — see [LICENSE](LICENSE).

@@ -1,6 +1,6 @@
 /**
- * Play Console Dark Mode - Popup Script
- * Manages toggle state and persists to chrome.storage.sync.
+ * Portal Dark Mode — popup script
+ * Toggle state and chrome.storage.sync.
  */
 
 (function () {
