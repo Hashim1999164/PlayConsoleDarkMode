@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Play Console & AdMob Dark Mode",
-  "version": "1.1.0",
-  "description": "Dark mode for Google Play Console and Google AdMob. Toggle with one click.",
+  "name": "Developer Consoles Dark Mode",
+  "version": "1.2.0",
+  "description": "Dark mode for Play Console, AdMob, and Apple App Store Connect. Toggle with one click.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -15,7 +15,9 @@
     "https://admob.google.com/*",
     "https://*.admob.google.com/*",
     "https://apps.admob.com/*",
-    "https://*.admob.com/*"
+    "https://*.admob.com/*",
+    "https://appstoreconnect.apple.com/*",
+    "https://*.appstoreconnect.apple.com/*"
   ],
   "action": {
     "default_popup": "popup/popup.html",
@@ -24,7 +26,7 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "Play Console & AdMob Dark Mode"
+    "default_title": "Developer Consoles Dark Mode"
   },
   "content_scripts": [
     {
@@ -35,7 +37,9 @@
         "https://admob.google.com/*",
         "https://*.admob.google.com/*",
         "https://apps.admob.com/*",
-        "https://*.admob.com/*"
+        "https://*.admob.com/*",
+        "https://appstoreconnect.apple.com/*",
+        "https://*.appstoreconnect.apple.com/*"
       ],
       "js": ["content/content.js"],
       "css": ["content/dark-mode-filter.css"],
@@ -51,7 +55,9 @@
         "https://admob.google.com/*",
         "https://*.admob.google.com/*",
         "https://apps.admob.com/*",
-        "https://*.admob.com/*"
+        "https://*.admob.com/*",
+        "https://appstoreconnect.apple.com/*",
+        "https://*.appstoreconnect.apple.com/*"
       ]
     }
   ]

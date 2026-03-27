@@ -1,6 +1,6 @@
 /**
- * Play Console & AdMob Dark Mode - Content Script
- * Injects dark mode CSS on Play Console and Google AdMob.
+ * Developer Consoles Dark Mode - Content Script
+ * Injects dark mode on Play Console, Google AdMob, and Apple App Store Connect.
  * Persists preference via chrome.storage.sync.
  */
 

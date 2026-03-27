@@ -1,16 +1,16 @@
-# Play Console & AdMob Dark Mode
+# Developer Consoles Dark Mode
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> Dark mode for **Google Play Console** and **Google AdMob**. A Chrome extension that adds a comfortable dark theme to play.google.com/console and admob.google.com. Toggle with one click.
+> Dark mode for **Google Play Console**, **Google AdMob**, and **Apple App Store Connect**. One extension for play.google.com/console, admob.google.com, and appstoreconnect.apple.com. Toggle with one click.
 
-**Keywords:** Chrome extension, Google Play Console, Google AdMob, AdMob dark mode, dark theme, Android developers, monetization, productivity, developer tools
+**Keywords:** Chrome extension, Google Play Console, Google AdMob, App Store Connect, Apple developer, dark mode, dark theme, iOS, Android, monetization, productivity
 
 **Contributions welcome!** See [CONTRIBUTING.md](CONTRIBUTING.md) for how to fork and submit pull requests.
 
 ## Features
 
-- **Complete dark theme** – Applies to Play Console and AdMob (including admob.google.com and apps.admob.com)
+- **Complete dark theme** – Play Console, AdMob, and App Store Connect (`appstoreconnect.apple.com`)
 - **Toggle button** – Turn dark mode on or off via the extension popup
 - **Persistent preference** – Your choice is saved and synced across Chrome instances
 - **Material-inspired UI** – Clean, Google-style popup design
@@ -30,7 +30,7 @@ Point Chrome to the folder containing `manifest.json` when loading the extension
 
 ## Usage
 
-1. Visit [play.google.com/console](https://play.google.com/console) or [Google AdMob](https://admob.google.com/)
+1. Visit [Play Console](https://play.google.com/console), [AdMob](https://admob.google.com/), or [App Store Connect](https://appstoreconnect.apple.com/)
 2. Click the extension icon in the Chrome toolbar
 3. Use the toggle to enable or disable dark mode
 4. If the page doesn’t update right away, refresh the tab
@@ -40,13 +40,16 @@ Point Chrome to the folder containing `manifest.json` when loading the extension
 - `play.google.com/console` and `play.google.com/console/*` (Play Console)
 - `admob.google.com/*` (AdMob console; e.g. `/v2/home`)
 - `apps.admob.com/*` and other `*.admob.com` subdomains where applicable
+- `appstoreconnect.apple.com/*` (App Store Connect; e.g. `/login` and dashboard after sign-in)
+
+**Note:** Apple ID sign-in may open on a separate Apple domain (e.g. `appleid.apple.com` or `idmsa.apple.com`). That flow is not covered by this extension; dark mode applies on `appstoreconnect.apple.com` after you return.
 
 ## Technical details
 
 - **Manifest V3**
-- **Permissions:** `storage`, `activeTab`, `host_permissions` for Play Console
+- **Permissions:** `storage`, `activeTab`, `host_permissions` for the supported developer sites
 - **Storage:** Uses `chrome.storage.sync` for preference persistence
-- **Approach:** Uses CSS `filter: invert(1) hue-rotate(180deg)` to darken the page—avoids DOM-specific overrides that can cause black screens on SPAs
+- **Approach:** CSS `filter: invert(0.88) hue-rotate(180deg)` (with image counter-invert) to avoid pure-black screens on light SPAs
 
 ## Project structure
 

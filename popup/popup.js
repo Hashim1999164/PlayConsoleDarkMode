@@ -17,12 +17,14 @@
       if (host === "play.google.com" && u.pathname.startsWith("/console")) return true;
       if (host === "admob.google.com" || host.endsWith(".admob.google.com")) return true;
       if (host === "admob.com" || host.endsWith(".admob.com")) return true;
+      if (host === "appstoreconnect.apple.com" || host.endsWith(".appstoreconnect.apple.com")) return true;
       return false;
     } catch {
       return (
         url.includes("play.google.com/console") ||
         url.includes("admob.google.com") ||
-        url.includes("apps.admob.com")
+        url.includes("apps.admob.com") ||
+        url.includes("appstoreconnect.apple.com")
       );
     }
   }
